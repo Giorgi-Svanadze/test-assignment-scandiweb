@@ -1,0 +1,106 @@
+@import './variables';
+@import './mixins';
+
+section {
+    @include element-box;
+    form {
+        display: flex;
+        flex-direction: column;
+
+        > div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            select, label {
+                width: 22%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            label {
+                background-color: $button-hover-bg-color;
+                color: $text-color;
+                border-radius: 45px;
+                box-shadow: $button-shadow;
+            }
+
+            > div {
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+
+                input {
+                    width: 30%;
+                    text-align: center;
+                    font-family: cursive;
+                }
+            }
+        }
+    }
+
+    > p {
+        color: red;
+        text-align: center;
+    }
+
+    select {
+        appearance: none;
+        background-color: $button-hover-bg-color;
+        color: $text-color;
+        border-radius: 45px;
+        border: none;
+        font-size: $font-size;
+        font-family: $font-family;
+        box-shadow: $button-shadow;
+        transition: $transition;
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        
+        &:hover {
+            box-shadow: $button-hover-shadow;
+            transform: translateY(-7px);
+        }
+
+        option {
+            background: $text-color;
+            color: #333; 
+        }
+    }
+}
+
+input[type="text"] {
+    height: 40px;
+    outline: none;
+    color: black;
+    box-shadow: $button-shadow;
+    background: $text-color;
+    border-radius: 5px;
+    font-size: $font-size;
+    border: 2px solid #4c9e9e;
+}
+
+@media only screen and (max-width: 768px) {
+    section {
+        form {
+            select, label {
+                height: 46px;
+                width: 100% !important;
+                margin: 10px 0 10px 0;
+            }
+            div {
+                margin-bottom: 0px;
+                flex-direction: column;
+                align-items: center;
+                > input {
+                    width: 100% !important;
+                    margin: 10px 0 10px 0;
+                }
+            }
+        }
+    }
+}

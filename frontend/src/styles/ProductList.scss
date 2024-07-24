@@ -1,0 +1,101 @@
+@import './variables';
+@import './mixins';
+
+section {
+  ul {
+    @include element-box;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    li {
+      margin: 15px 0;
+      flex: 0 1 calc(23% - 2%);
+      padding: 20px;
+      border-radius: 45px;
+      box-shadow: 0px 8px 15px $box-shadow-color;
+      transition: $transition;
+      text-align: center;
+
+      &:hover {
+        background-color: $button-hover-bg-color;
+        box-shadow: $button-hover-shadow;
+        transform: translateY(-7px);
+        color: $text-color;
+
+        input[type="checkbox"] {
+          color: $text-color;
+        }
+      }
+    }
+  }
+}
+
+.delete-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0;
+  border: 3px solid;
+  border-radius: 10px;
+  transition: $transition;
+  padding: 3px;
+
+  &::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size;
+    font-weight: bolder;
+    content: "\2714";
+    width: 15px;
+    height: 15px;
+    transform: scale(0);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  section ul li {
+    flex: 0 1 calc(28% - 2%);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  section ul li {
+    flex: 0 1 calc(42% - 2%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: 160px;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  section ul li {
+    flex: 0 1 100%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  header {
+    height: 250px;
+    justify-content: space-evenly;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
